@@ -25,3 +25,9 @@ def update(request, todo_id):
     todo.is_complete = not todo.is_complete
     todo.save()
     return redirect('index')
+
+
+def delete(request, todo_id):
+    todo = ToDo.objects.get(id=todo_id)
+    todo.delete()
+    return redirect('index')
